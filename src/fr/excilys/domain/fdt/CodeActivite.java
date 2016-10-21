@@ -28,22 +28,22 @@ public class CodeActivite {
         return periodeValidite;
     }
 
-    public static class CodeActiviteBuilder {
+    public static class Builder {
         private Long idCodeActivite;
         private String code;
         private Optional<Periode> periodeValidite = Optional.empty();
 
-        public CodeActiviteBuilder withId(Long idCodeActivite) {
+        public Builder withId(Long idCodeActivite) {
             this.idCodeActivite = idCodeActivite;
             return this;
         }
 
-        public CodeActiviteBuilder withCode(String code) {
+        public Builder withCode(String code) {
             this.code = code;
             return this;
         }
 
-        public CodeActiviteBuilder withPeriodeValidite(Optional<Periode> periodeValidite) {
+        public Builder withPeriodeValidite(Optional<Periode> periodeValidite) {
             this.periodeValidite = periodeValidite;
             return this;
         }

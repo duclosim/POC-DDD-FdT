@@ -1,7 +1,8 @@
 package fr.excilys.domain.fdt;
 
+import fr.excilys.service.FeuilleDeTempsService;
+
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -12,6 +13,8 @@ public class FeuilleDeTemps {
     private Mois mois;
     private List<Activite> activites;
     private StatutFdt statut;
+
+    private FeuilleDeTempsService feuilleDeTempsService = new FeuilleDeTempsService();
 
     private FeuilleDeTemps(Long id, Mois mois, List<Activite> activites, StatutFdt statutFdt) {
         this.id = id;
@@ -28,7 +31,7 @@ public class FeuilleDeTemps {
         return mois;
     }
 
-    public Collection<Activite> getActivites() {
+    public List<Activite> getActivites() {
         return new ArrayList<>(activites);
     }
 
@@ -38,6 +41,7 @@ public class FeuilleDeTemps {
 
     public void ajouterActivite(Activite activite) {
         activites.add(activite);
+        feuilleDeTempsService.ajouterActivite(this, activite);
     }
 
     public void passerAuProchainStatut() {
@@ -48,7 +52,7 @@ public class FeuilleDeTemps {
         statut = statut.transitionPrecedente();
     }
 
-    public static class FeuilleDeTempsBuilder {
+    public static class Builder {
         private Long id;
         private Mois mois;
         private List<Activite> activites = new ArrayList<>();
@@ -58,22 +62,22 @@ public class FeuilleDeTemps {
             return new FeuilleDeTemps(id, mois, activites, statutFdt);
         }
 
-        public FeuilleDeTempsBuilder withId(Long id) {
+        public Builder withId(Long id) {
             this.id = id;
             return this;
         }
 
-        public FeuilleDeTempsBuilder withMois(Mois mois) {
+        public Builder withMois(Mois mois) {
             this.mois = mois;
             return this;
         }
 
-        public FeuilleDeTempsBuilder withActivites(List<Activite> activites) {
+        public Builder withActivites(List<Activite> activites) {
             this.activites = activites;
             return this;
         }
 
-        public FeuilleDeTempsBuilder withStatutFdt(StatutFdt statutFdt) {
+        public Builder withStatutFdt(StatutFdt statutFdt) {
             this.statutFdt = statutFdt;
             return this;
         }
