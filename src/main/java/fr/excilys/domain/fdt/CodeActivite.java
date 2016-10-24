@@ -28,6 +28,31 @@ public class CodeActivite {
         return periodeValidite;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        CodeActivite that = (CodeActivite) o;
+
+        return idCodeActivite != null ? idCodeActivite.equals(that.idCodeActivite) : that.idCodeActivite == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return idCodeActivite != null ? idCodeActivite.hashCode() : 0;
+    }
+
+    @Override
+    public String toString() {
+        return "CodeActivite{" +
+                "idCodeActivite=" + idCodeActivite +
+                ", code='" + code + '\'' +
+                ", periodeValidite=" + periodeValidite +
+                '}';
+    }
+
     public static class Builder {
         private Long idCodeActivite;
         private String code;

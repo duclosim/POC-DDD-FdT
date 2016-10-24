@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>fr.excilys.poc.ddd</groupId>
-    <artifactId>POC DDD FdT</artifactId>
+    <artifactId>fr.excilys.poc.ddd.fdt</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>

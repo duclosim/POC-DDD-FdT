@@ -52,6 +52,33 @@ public class FeuilleDeTemps {
         statut = statut.transitionPrecedente();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        FeuilleDeTemps that = (FeuilleDeTemps) o;
+
+        return id != null ? id.equals(that.id) : that.id == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
+    }
+
+    @Override
+    public String toString() {
+        return "FeuilleDeTemps{" +
+                "id=" + id +
+                ", mois=" + mois +
+                ", activites=" + activites +
+                ", statut=" + statut +
+                ", feuilleDeTempsService=" + feuilleDeTempsService +
+                '}';
+    }
+
     public static class Builder {
         private Long id;
         private Mois mois;

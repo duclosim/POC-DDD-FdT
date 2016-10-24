@@ -25,4 +25,12 @@ public enum StatutFdt {
         int ordreProchainStatut = Integer.max((ordre - 1) , 0);
         return StatutFdt.values()[ordreProchainStatut];
     }
+
+    @Override
+    public String toString() {
+        return "StatutFdt{" +
+                "ordre=" + ordre +
+                ", code='" + code + '\'' +
+                '}';
+    }
 }

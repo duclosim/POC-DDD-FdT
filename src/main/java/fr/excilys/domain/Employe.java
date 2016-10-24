@@ -41,6 +41,32 @@ public class Employe {
         return new TreeSet<>(codesActivite);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Employe employe = (Employe) o;
+
+        return id != null ? id.equals(employe.id) : employe.id == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Employe{" +
+                "id=" + id +
+                ", matricule='" + matricule + '\'' +
+                ", feuillesDeTemps=" + feuillesDeTemps +
+                ", codesActivite=" + codesActivite +
+                '}';
+    }
+
     public static class EmployeBuilder {
         private Long id;
         private String matricule;
