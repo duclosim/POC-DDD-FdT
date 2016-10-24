@@ -17,7 +17,7 @@ public enum StatutFdt {
     }
 
     public StatutFdt prochaineTransition() {
-        int ordreProchainStatut = Integer.min((ordre + 1) , StatutFdt.values().length);
+        int ordreProchainStatut = Integer.min((ordre + 1) , StatutFdt.values().length - 1);
         return StatutFdt.values()[ordreProchainStatut];
     }
 
